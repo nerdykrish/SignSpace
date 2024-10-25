@@ -5,7 +5,7 @@ from flask import Flask, render_template, jsonify, session, redirect, url_for, r
 app = Flask(__name__)
 app.secret_key = os.urandom(24) # Will be useful later
 
-@app.route('/')
+@app.route('/home')
 def home():
     # Load the appropriate panel based on login status
     if 'logged_in' in session and session['logged_in']:
@@ -46,6 +46,32 @@ def logout():
 def check_login():
     is_logged_in = 'logged_in' in session and session['logged_in']
     return jsonify(logged_in=is_logged_in)
+
+@app.route('/')
+def meeting():
+    return render_template('meeting.html')
+
+# Store the uploaded video frames and meeting data in memory or files as needed
+uploaded_frames = []
+meeting_data = {
+    'transcript': 'Initial transcription data...',
+    'summary': 'Initial summary data...',
+    'todos': ['Task 1', 'Task 2', 'Task 3'],
+}
+
+@app.route('/upload_frame', methods=['POST'])
+def upload_frame():
+    # Handle the uploaded video frame
+    if 'video_frame' in request.files:
+        video_frame = request.files['video_frame']
+        # Save or process the frame (here we just append it to a list for demonstration)
+        uploaded_frames.append(video_frame)
+        return '', 204  # No content response
+
+@app.route('/get_meeting_data', methods=['GET'])
+def get_meeting_data():
+    # Send back the meeting data
+    return jsonify(meeting_data)
 
 if __name__ == '__main__':
     app.run(debug=True)

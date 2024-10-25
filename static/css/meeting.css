@@ -1,0 +1,226 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap');
+
+:root {
+    --background-color: #2A2A2A;
+    --text-color: #ECDFCC;
+    --title-color: #ECDFCC;
+    --header-background-color: #191919;
+    --panel-background-color: #1F1F1F;
+    --button-background-color: #4dc486;
+    --button-text-color: #1F1F1F;
+    --button-hover-background: #45A049;
+}
+
+body.light-theme {
+    --background-color: #FFF;
+    --text-color: #181C14;
+    --title-color: #181C14;
+    --header-background-color: #ffffff;
+    --panel-background-color: #efefef;
+    --button-background-color: #4dc486;
+    --button-text-color: #FFFFFF;
+    --button-hover-background: #45A049;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    height: 100%;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* Header */
+.main-header {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    align-items: center;
+    background-color: var(--header-background-color);
+    padding: 10px 20px;
+    color: var(--text-color);
+}
+
+.title {
+    font-size: 19px;
+    font-weight: bolder;
+    margin: 0;
+}
+
+.meeting-title {
+    text-align: center;
+    font-size: 19px;
+    font-weight: bolder;
+    margin: 0;
+}
+
+.user-info {
+    text-align: right;
+    display: grid;
+    grid-template-columns: 45px auto;
+}
+
+.toggle {
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 50%;
+}
+
+.toggle:hover {
+    background: var(--panel-background-color);
+}
+
+.time {
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+/* Main Layout */
+.main-content {
+    display: grid;
+    grid-template-columns: auto 450px;
+    grid-gap: 20px;
+    padding: 20px;
+    height: calc(100vh - 105px); /* Header height is 70px */
+}
+
+.left-panel {
+    display: grid;
+    grid-template-rows: 7fr 3fr;
+    height: calc(100vh - 105px);
+}
+
+.video-feed {
+    background-color: var(--panel-background-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border-radius: 40px;
+    overflow: hidden;
+}
+
+video {
+    width: 100%;
+    height: 100%;
+    background-color: black;
+}
+
+.video-controls {
+    position: absolute;
+    bottom: 20px;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    width: 100%;
+}
+
+.circle-btn {
+    width: 60px;
+    height: 60px;
+    border: none;
+    border-radius: 50%;
+    color: var(--text-color);
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.end-btn {
+    background-color: #e53935;
+}
+
+.mute-btn {
+    background-color: var(--background-color);
+}
+
+.camera-btn {
+    background-color: var(--background-color);
+}
+
+.end-btn:hover {
+    background-color: #c62828;
+}
+
+.mute-btn:hover {
+    background-color: var(--button-text-color);
+}
+
+.camera-btn:hover {
+    background-color: var(--button-text-color);
+}
+
+/* Transcription Section */
+.transcription {
+    background-color: var(--panel-background-color);
+    padding: 23px;
+    border-radius: 40px;
+    margin-top: 20px;
+}
+
+/* Right Panel */
+.right-panel {
+    display: grid;
+    grid-template-rows: 1fr 2fr;
+    height: calc(100vh - 105px);
+    grid-gap: 20px;
+}
+
+/* Summary and To-Do */
+.summary-tasks {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.summary, .tasks-list {
+    background-color: var(--panel-background-color);
+    padding: 23px;
+    border-radius: 40px;
+}
+
+/* Chat Section */
+.chat {
+    background-color: var(--panel-background-color);
+    padding: 23px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 40px;
+}
+
+.chat-box {
+    max-height: 150px;
+    overflow-y: auto;
+}
+
+input[type="text"] {
+    padding: 10px;
+    background-color: var(--panel-background-color);
+    border: none;
+    width: 100%;
+    color: var(--text-color);
+    margin-top: 10px;
+}
+
+input[type="text"]:focus {
+    outline: none;
+}
+
+ul {
+    padding: 14px;
+}
+
+#summary-text {
+    padding: 14px;
+}

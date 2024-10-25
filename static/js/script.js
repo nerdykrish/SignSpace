@@ -2,16 +2,28 @@ let leftPanel;
 
 document.addEventListener('DOMContentLoaded', function () {
     leftPanel = document.getElementById('left-panel');
-    const randomFactElement = document.getElementById('random-fact');
 
-    function updateClock() {
+    function updateTime() {
+        const timeElement = document.querySelector('.time');
         const now = new Date();
-        const hours = now.getHours();
-        const minutes = now.getMinutes();
-        const timeString = hours + ':' + (minutes < 10 ? '0' : '') + minutes;
-        document.getElementById('current-time').innerText = timeString;
+
+        const options = {
+            hour: '2-digit',
+            minute: '2-digit',
+            hour12: true,
+            weekday: 'short',
+            month: 'short',
+            day: 'numeric'
+        };
+
+        const formattedTime = now.toLocaleTimeString('en-US', options).replace(',', ' •');
+
+        timeElement.innerText = formattedTime;
     }
-    setInterval(updateClock, 1000);
+
+    setInterval(updateTime, 1000);
+
+    updateTime();
 
     const facts = [
         "Sign language is recognized as an official language in many countries.",
@@ -128,28 +140,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     displayRandomFacts();
-
-    function updateTime() {
-        const timeElement = document.querySelector('.time');
-        const now = new Date();
-
-        const options = {
-            hour: '2-digit',
-            minute: '2-digit',
-            hour12: true,
-            weekday: 'short',
-            month: 'short',
-            day: 'numeric'
-        };
-
-        const formattedTime = now.toLocaleTimeString('en-US', options).replace(',', ' •');
-
-        timeElement.textContent = formattedTime;
-    }
-
-    setInterval(updateTime, 1000);
-
-    updateTime();
 
     const toggleButton = document.getElementById('theme-toggle');
 

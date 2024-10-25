@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Meeting UI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/meeting.css') }}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+<!-- Header -->
+<div class="main-header">
+    <div class="logo">
+        <p class="title">Sign Space</p>
+    </div>
+    <div class="header-title">
+        <p class="meeting-title">Project Reporting - Week 1</p>
+    </div>
+    <div class="user-info">
+        <i class="material-icons toggle" id="theme-toggle">brightness_4</i>
+        <span class="time" id="time">2:28 PM • Fri, Oct 25</span>
+    </div>
+</div>
+
+<!-- Main Grid Layout -->
+<div class="main-content">
+    <!-- Left Side - Video and Transcription -->
+    <div class="left-panel">
+        <!-- Video Section -->
+        <div class="video-feed">
+            <video id="localVideo" autoplay muted></video>
+            <div class="video-controls">
+                <button id="mute-btn" class="circle-btn mute-btn">
+                    <span class="material-icons">volume_off</span>
+                </button>
+                <button id="camera-btn" class="circle-btn camera-btn">
+                    <span class="material-icons">videocam</span>
+                </button>
+                <button id="end-btn" class="circle-btn end-btn">
+                    <span class="material-icons">call_end</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Transcription Section -->
+        <div class="transcription">
+            <h3>Transcription</h3>
+            <p id="transcript">User: Discussing the latest project progress...</p>
+        </div>
+    </div>
+
+    <!-- Right Side - Summary, To-Do, and Chat -->
+    <div class="right-panel">
+        <!-- Summary and Tasks -->
+        <div class="summary-tasks">
+            <div class="summary">
+                <h3>Summary</h3>
+                <p id="summary-text">In this meeting, we discussed project progress and the next steps...</p>
+            </div>
+
+            <div class="tasks-list">
+                <h3>To-Do</h3>
+                <ul>
+                    <li>Team Discussion</li>
+                    <li>Daily Work Review</li>
+                    <li>Weekly Report Stand Up</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Chat Section -->
+        <div class="chat">
+            <h3>Chat</h3>
+            <div class="chat-box">
+                <p>Alicia: How about our last meeting?</p>
+                <p>Veronica: It's all clear, no worries.</p>
+            </div>
+            <input type="text" placeholder="Type your message...">
+        </div>
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/meeting.js') }}"></script>
+</body>
+</html>
