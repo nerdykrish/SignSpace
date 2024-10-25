@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignSpace</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+<div class="main-header">
+    <div class="logo">
+        <p class="title">Sign Space</p>
+    </div>
+    <div class="user-info">
+        <span class="time">2:28 PM • Fri, Oct 25</span>
+    </div>
+</div>
+
+<div class="container">
+    <div class="left-panel" id="left-panel">
+        <p class="header">Empowering Communication for All</p>
+        <p class="caption">Join meetings with real-time transcription and sign language support for a more inclusive experience.</p>
+        <button id="login-button">Login to Continue</button>
+    </div>
+
+    <div class="right-panel" id="right-panel">
+        <h2>Did you know?</h2>
+        <div id="facts-container">
+            <!-- Facts will be inserted here -->
+        </div>
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
