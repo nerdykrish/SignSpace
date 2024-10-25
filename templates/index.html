@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SignSpace</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
 <div class="main-header">
@@ -12,18 +13,18 @@
         <p class="title">Sign Space</p>
     </div>
     <div class="user-info">
+        <i class="material-icons toggle" id="theme-toggle">brightness_4</i>
         <span class="time">2:28 PM • Fri, Oct 25</span>
     </div>
 </div>
 
 <div class="container">
     <div class="left-panel" id="left-panel">
-        <p class="header">Empowering Communication for All</p>
-        <p class="caption">Join meetings with real-time transcription and sign language support for a more inclusive experience.</p>
-        <button id="login-button">Login to Continue</button>
+        <!-- Dynamic left panel content will be loaded here -->
     </div>
 
     <div class="right-panel" id="right-panel">
+        <img class="illustration" src="{{ url_for('static', filename='media/communicate.svg') }}" alt="">
         <h2>Did you know?</h2>
         <div id="facts-container">
             <!-- Facts will be inserted here -->
@@ -32,5 +33,13 @@
 </div>
 
 <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+<script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const initialPanel = "{{ initial_panel }}";
+        loadLeftPanel(initialPanel);
+
+    })
+</script>
 </body>
 </html>
